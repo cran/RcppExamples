@@ -1,0 +1,36 @@
+2010-03-10  Dirk Eddelbuettel  <edd@debian.org>
+
+	* DESCRIPTION: Release 0.1.0 for the first CRAN upload
+	
+	* src/Makevars.win: Switch back from backticks to $(shell ...)
+	  which should be fine as GNU make is mandated on Windows anyway
+
+2010-03-07  Romain Francois <romain@r-enthusiasts.com
+
+	* src/RcppVectorExample.cpp: use a new vector for the output
+	* src/RcppStringVectorExample.cpp: rework the new api version
+	using the StringTransformer class (depends on Rcpp >= 0.7.7.15)
+
+2010-03-04  Dirk Eddelbuettel  <edd@dexter>
+
+	* src/RcppMatrixExample.cpp: Added 'classic' + 'new' API examples
+	* R/RcppMatrixExample.R: idem
+	* src/RcppStringVectorExample.cpp: idem
+	* R/RcppStringVectorExample.R: idem
+
+2010-03-03  Dirk Eddelbuettel  <edd@dexter>
+
+	* src/RcppVectorExample.cpp: Added 'new' API example
+	* R/RcppVectorExample.R: Added argument 'api'
+
+2010-02-27  Dirk Eddelbuettel  <edd@debian.org>
+
+	* src/RcppDateExample.cpp: Carved out of RcppExample.cpp
+	* src/RcppParamsExample.cpp: idem
+	* src/RcppVectorExample.cpp: idem
+	* src/RcppExample.cpp: fixed indentation
+
+2010-02-16  Dirk Eddelbuettel  <edd@debian.org>
+
+	* New package, started from Rcpp 0.7.7
+
