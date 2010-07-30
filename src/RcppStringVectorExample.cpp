@@ -24,6 +24,7 @@
 #include <Rcpp.h>
 
 RcppExport SEXP newRcppStringVectorExample(SEXP strvec) {
+BEGIN_RCPP
 
     Rcpp::StringVector orig(strvec);		// creates Rcpp string vector from SEXP
     Rcpp::StringVector vec(orig.size());	
@@ -31,11 +32,12 @@ RcppExport SEXP newRcppStringVectorExample(SEXP strvec) {
     std::transform( orig.begin(), orig.end(), vec.begin(), 
     	Rcpp::make_string_transformer(tolower) ) ;
 
-    Rcpp::Pairlist res(
+    return Rcpp::List::create(
     	Rcpp::Named( "result" )   = vec,
-    	Rcpp::Named( "original" ) = orig ) ;
+    	Rcpp::Named( "original" ) = orig 
+    	) ;
 
-    return res;
+END_RCPP
 }
 
 RcppExport SEXP classicRcppStringVectorExample(SEXP strvec) {

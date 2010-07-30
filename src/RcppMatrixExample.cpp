@@ -22,8 +22,10 @@
 // along with Rcpp.  If not, see <http://www.gnu.org/licenses/>.
 
 #include <Rcpp.h>
+#include <cmath>
 
 RcppExport SEXP newRcppMatrixExample(SEXP matrix) {
+BEGIN_RCPP
 
     Rcpp::NumericMatrix orig(matrix);	// creates Rcpp matrix from SEXP
     Rcpp::NumericMatrix mat(orig.nrow(), orig.ncol());	
@@ -32,12 +34,14 @@ RcppExport SEXP newRcppMatrixExample(SEXP matrix) {
     //   int n = mat.nrow(), k=mat.ncol();
     // and loop over the elements, but using the STL is so much nicer
     // so we use a STL transform() algorithm on each element
-    std::transform(orig.begin(), orig.end(), mat.begin(), sqrt);
+    std::transform(orig.begin(), orig.end(), mat.begin(), ::sqrt);
 
-    Rcpp::Pairlist res(Rcpp::Named( "result", mat),
-                       Rcpp::Named( "original", orig));
+    return Rcpp::List::create( 
+    	Rcpp::Named( "result" ) = mat, 
+    	Rcpp::Named( "original" ) = orig
+    	) ;
 
-    return res;
+END_RCPP
 }
 
 RcppExport SEXP classicRcppMatrixExample(SEXP matrix) {
