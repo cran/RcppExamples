@@ -1,8 +1,8 @@
 // -*- mode: C++; c-indent-level: 4; c-basic-offset: 4; tab-width: 8 -*-
 //
-// RcppParamsExample.h: Rcpp R/C++ interface class library RcppDate example
+// DataFrame.cpp: Rcpp R/C++ interface class library data frame example
 //
-// Copyright (C) 2009 - 2011 Dirk Eddelbuettel and Romain Francois
+// Copyright (C) 2011        Dirk Eddelbuettel and Romain Francois
 //
 // This file is part of Rcpp.
 //
@@ -21,29 +21,32 @@
 
 #include <Rcpp.h>
 
-RcppExport SEXP newRcppDateExample(SEXP dvsexp, SEXP dtvsexp) {
+RcppExport SEXP RcppDataFrame(SEXP Dsexp) {
 
     try {					// or use BEGIN_RCPP macro
 
-	Rcpp::DateVector dv(dvsexp);
-	Rcpp::DatetimeVector dtv(dtvsexp);
-	Rcpp::Function formatDate("format.Date");
-	Rcpp::Function formatDatetime("format.POSIXct");
+      // construct the data.frame object
+      Rcpp::DataFrame DF = Rcpp::DataFrame(Dsexp);
 
-	Rprintf("\nIn C++, seeing the following date value\n");
-	for (int i=0; i<dv.size(); i++) {
-	    Rcpp::Rcout << Rcpp::as<std::string>(formatDate(Rcpp::wrap(dv[i]))) << std::endl;
-	    dv[i] = dv[i] + 7;		// shift a week
-	}
-	Rprintf("\nIn C++, seeing the following datetime value\n");
-	for (int i=0; i<dtv.size(); i++) {
-	    Rcpp::Rcout << Rcpp::as<std::string>(formatDatetime(Rcpp::wrap(dtv[i]))) << std::endl;
-	    dtv[i] = dtv[i] + 0.250;    // shift 250 millisec
-	}
+      // and access each column by name
+      Rcpp::IntegerVector a = DF["a"];
+      Rcpp::CharacterVector b = DF["b"];
+      Rcpp::DateVector c = DF["c"];
+      
+      // do something
+      a[2] = 42;
+      b[1] = "foo";
+      c[0] = c[0] + 7;                      // move up a week
 
-	// Build result set to be returned as a list to R.
-	return Rcpp::List::create(Rcpp::Named("date",   dv),
-				  Rcpp::Named("datetime", dtv));
+      // create a new data frame
+      Rcpp::DataFrame NDF = 
+	  Rcpp::DataFrame::create(Rcpp::Named("a")=a,
+				  Rcpp::Named("b")=b,
+				  Rcpp::Named("c")=c);
+
+      // and return old and new in list
+      return(Rcpp::List::create(Rcpp::Named("origDataFrame")=DF,
+				Rcpp::Named("newDataFrame")=NDF));
 
     } catch( std::exception &ex ) {		// or use END_RCPP macro
 	forward_exception_to_r( ex );
@@ -52,5 +55,6 @@ RcppExport SEXP newRcppDateExample(SEXP dvsexp, SEXP dtvsexp) {
     }
     return R_NilValue; // -Wall
 }
+
 
 
