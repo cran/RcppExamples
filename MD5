@@ -1,7 +1,6 @@
-7b0bab824f074345f239a1e5a3949e7a *ChangeLog
-0b3bfe702241bfcd430dafb987d102c3 *DESCRIPTION
+c1fbe0bf5af8102077a2a6e1ca444f13 *ChangeLog
+5d7f0aa8fdfa8af16170749cfe552cab *DESCRIPTION
 bbb124120ab208f8f10678913162b272 *NAMESPACE
-4115645b015e954a0b6f7911ecf47105 *NEWS.Rd
 2e401c3fc7c3eceecfa077b1804752f9 *R/RcppDataFrame.R
 d88c31e8170928f63084ae931b21c6db *R/RcppDateExample.R
 e8e343ac4cb4346481203112e90faaba *R/RcppMatrixExample.R
@@ -11,9 +10,10 @@ c17081b8daf10c78650dbbc655793991 *R/RcppParamsExample.R
 7905e74890bb55878167a2c4a8545e0b *R/RcppVectorExample.R
 05ce9b1acdebc0a80ce74bc8a91d7f41 *TODO
 7122e143997bfa0089add8f8b4e0039a *cleanup
+0829c2b82f4a7e90f7f136dcd64f866b *inst/NEWS.Rd
 c938a71092f3799b4b950f60a515cdb4 *man/RcppDataFrame.Rd
 dde1baad7732e1fa797d9466af1e22ec *man/RcppDate.Rd
-1fbccb4fbe09f6cd97b89546bbc7a27b *man/RcppExamples-package.Rd
+d4304d7939994e8d3f4e4195c58567b5 *man/RcppExamples-package.Rd
 d8e66e263275e8905cff09980dc65e53 *man/RcppParams.Rd
 0bc541392c0af070944bc2de00505b9f *man/RcppRNGs.Rd
 337ba0f0744db2c24dc0953803e51121 *man/RcppResultSet.Rd
