@@ -2,6 +2,19 @@
 \title{News for Package 'RcppExamples'}
 \newcommand{\cpkg}{\href{http://CRAN.R-project.org/package=#1}{\pkg{#1}}}
 
+\section{Changes in RcppExamples version 0.1.7 (2016-01-23)}{
+  \itemize{
+    \item All examples were updated to use \emph{Rcpp Attributes}
+    and (where possible) use \code{const &} interfaces.  
+    \item Updated \code{DESCRIPTION} for current \code{R CMD check}
+    standards
+    \item The \cpkg{Rcpp} package is now imported rather than depended
+    upon. 
+    \item Added \code{README.md} as well as \code{.travis.yml}.
+    \item Also updated and refreshed all manual pages and R files.
+  }
+}
+
 \section{Changes in RcppExamples version 0.1.6 (2013-01-15)}{
   \itemize{
     \item Moved \code{NEWS.Rd} from top-level directory to correct

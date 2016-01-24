@@ -1,14 +1,13 @@
 useDynLib(RcppExamples)
 
-export(#RcppExample,
-       #print.RcppExample,
-       RcppDataFrame,
+export(RcppDataFrame,
        RcppDateExample,
-       RcppParamsExample,
-       RcppVectorExample,
+       RcppListExample,
+       RcppNumericVectorExample,
        RcppMatrixExample,
-       RcppRNGs,
+       RcppRNGsExample,
        RcppStringVectorExample
 )
 
+importFrom(Rcpp, evalCpp)
 

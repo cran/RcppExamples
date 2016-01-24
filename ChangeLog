@@ -1,3 +1,29 @@
+2016-01-23  Dirk Eddelbuettel  <edd@debian.org>
+
+	* DESCRIPTION (Version): New version 0.1.7
+
+	* DESCRIPTION: Refreshed with minor edits
+
+	* DESCRIPTION: Import: rather than Depends: on Rcpp
+	* NAMESPACE: Idem
+
+	* README.md: Added a short README
+
+	* src/*: Edited and updated adding 'const &' in several interfaces
+	* R/*: Edited and Updated
+	* man/*: Edited and Updated with a few minor corrections
+
+2016-01-22  Dirk Eddelbuettel  <edd@debian.org>
+
+	* .travis.yml: Added to support Travis CI
+	* .Rbuildignore: Added
+
+2013-09-17  Romain Francois <romain@r-enthusiasts.com>
+
+	* R/*: Updated to reflect newer Rcpp features
+	* src/*: Idem
+	* man/*: Corresponding documentation
+
 2013-01-15  Dirk Eddelbuettel  <edd@debian.org>
 
 	* DESCRIPTION (Version): New version 0.1.6
