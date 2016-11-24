@@ -27,17 +27,31 @@ List DateExample(DateVector & dv, DatetimeVector & dtv) {
     Function formatDate("format.Date");
     Function formatDatetime("format.POSIXct");
 
-    Rprintf("\nIn C++, seeing the following date value\n");
+    Rcout << "\nIn C++, seeing the following date values before/after adding a week:\n";
+    print(formatDate(dv));
+#if RCPP_VERSION >= Rcpp_Version(0,12,8)
+    dv = dv + 7;		// shift a week
+#else
+    // fallback for older Rcpp versions
     for (int i=0; i<dv.size(); i++) {
-        Rcout << as<std::string>(formatDate(wrap(dv[i]))) << std::endl;
-        dv[i] = dv[i] + 7;		// shift a week
+        dv[i] = dv[i] + 7;
     }
-    Rprintf("\nIn C++, seeing the following datetime value\n");
-    for (int i=0; i<dtv.size(); i++) {
-        Rcout << as<std::string>(formatDatetime(wrap(dtv[i]))) << std::endl;
-        dtv[i] = dtv[i] + 0.250;    // shift 250 millisec
-    }
+#endif
+    print(formatDate(dv));
 
+    Rcout << "\nIn C++, seeing the following datetime values before/after adding a quarter second:\n";
+    print(formatDatetime(dtv));
+#if RCPP_DEV_VERSION >= RcppDevVersion(0,12,8,1)
+    // this didn't get done quite right in Rcpp 0.12.8
+    dtv = dtv + 0.250;          // shift 250 millisec
+#else
+    // fallback
+    for (int i=0; i<dtv.size(); i++) {
+        dtv[i] = dtv[i] + 0.250;
+    }
+#endif
+    print(formatDatetime(dtv));
+    
     // Build result set to be returned as a list to R.
     return List::create(Named("date",   dv),
                         Named("datetime", dtv));

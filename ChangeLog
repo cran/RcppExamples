@@ -1,3 +1,25 @@
+2016-11-24  Dirk Eddelbuettel  <edd@debian.org>
+
+	* DESCRIPTION (Version, Date): Release 0.1.8
+
+	* src/DateExample.cpp (DateExample): Rewritten taking advantage of
+	Rcpp 0.12.8 features and 'new' date(time) vectors
+
+	* src/Makevars (PKG_CXXFLAGS): Turning of new datetime vectors via
+	#define while they are still being phased in by Rcpp
+	* src/Makevars.win: Ditto
+
+	* R/RcppDateExample.R (RcppDateExample): Setting and resetting
+	digits.secs option
+
+	* README.md: Use canonical URLs
+
+	* .travis.yml: Switch to using run.sh for Travis CI
+
+2016-01-30  Dirk Eddelbuettel  <edd@debian.org>
+
+	* DESCRIPTION (BugReports): Added BugReports: URL
+
 2016-01-23  Dirk Eddelbuettel  <edd@debian.org>
 
 	* DESCRIPTION (Version): New version 0.1.7
