@@ -1,3 +1,58 @@
+2019-08-24  Dirk Eddelbuettel  <edd@debian.org>
+
+	* DESCRIPTION (Version, Date): Release 0.1.9
+
+2019-08-22  Dirk Eddelbuettel  <edd@debian.org>
+
+	* DESCRIPTION (Version, Date): Roll minor version
+
+	* DESCRIPTION (Suggests): Remove RUnit as unused
+	* .travis.yml: Ditto
+
+2019-08-21  Dirk Eddelbuettel  <edd@debian.org>
+
+	* README.md: Added dependencies badge
+	
+2018-09-22  Dirk Eddelbuettel  <edd@debian.org>
+
+	* DESCRIPTION (Version, Date): New minor release
+
+	* src/StringVectorExample.cpp (StringVectorExample): Updated with a
+	local tolower<>() to not run afoul of the 'C++17 noexcept' warning
+
+	* src/Makevars: No longer need -DRCPP_NEW_DATE_DATETIME_VECTORS
+	* src/Makevars.win: Ditto
+
+	* NAMESPACE: Add .registration=TRUE to useDynLib call
+
+	* src/RcppExports.cpp: Regenerated (with registrations)
+	* R/RcppExports.R: Also regenerated
+
+2018-09-22  ChrisMuir  <chrismuirRVA@gmail.com>
+
+	* man/RcppStringVectorExample.Rd: Add missing parenthesis
+
+2017-08-26  Dirk Eddelbuettel  <edd@debian.org>
+
+	* .travis.yml (before_install): Use https for curl fetch
+
+2017-01-02  Dirk Eddelbuettel  <edd@debian.org>
+
+	* R/RcppDataFrame.R: (RcppDataFrame): Print but return invisibly
+
+2017-01-02  Xikun Han  <1159225156@qq.com>
+
+	* R/RcppDataFrame.R: (RcppDataFrame): Avoid double printing of return
+
+2016-12-02  Dirk Eddelbuettel  <edd@debian.org>
+
+	* src/DateExample.cpp (DateExample): Examples take more advantage
+	of 'new' Rcpp Date(time) classe; conditional code for old version
+
+2016-11-25  Dirk Eddelbuettel  <edd@debian.org>
+
+	* DESCRIPTION (URL): Correct package URL
+
 2016-11-24  Dirk Eddelbuettel  <edd@debian.org>
 
 	* DESCRIPTION (Version, Date): Release 0.1.8
